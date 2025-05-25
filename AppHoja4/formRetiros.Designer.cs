@@ -33,6 +33,7 @@
             this.lblRetiros = new System.Windows.Forms.Label();
             this.lblCantidadRet = new System.Windows.Forms.Label();
             this.txtCantidadRet = new System.Windows.Forms.TextBox();
+            this.btnRetiro = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtBuscarUserDelRet
@@ -79,12 +80,23 @@
             this.txtCantidadRet.Size = new System.Drawing.Size(213, 20);
             this.txtCantidadRet.TabIndex = 13;
             // 
+            // btnRetiro
+            // 
+            this.btnRetiro.Location = new System.Drawing.Point(167, 333);
+            this.btnRetiro.Name = "btnRetiro";
+            this.btnRetiro.Size = new System.Drawing.Size(75, 23);
+            this.btnRetiro.TabIndex = 14;
+            this.btnRetiro.Text = "Retiro";
+            this.btnRetiro.UseVisualStyleBackColor = true;
+            this.btnRetiro.Click += new System.EventHandler(this.btnRetiro_Click);
+            // 
             // formRetiros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCyan;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnRetiro);
             this.Controls.Add(this.txtCantidadRet);
             this.Controls.Add(this.lblCantidadRet);
             this.Controls.Add(this.txtBuscarUserDelRet);
@@ -104,5 +116,6 @@
         private System.Windows.Forms.Label lblRetiros;
         private System.Windows.Forms.Label lblCantidadRet;
         private System.Windows.Forms.TextBox txtCantidadRet;
+        private System.Windows.Forms.Button btnRetiro;
     }
 }

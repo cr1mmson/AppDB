@@ -207,6 +207,43 @@ namespace AppHoja4.Classes
         
         }
 
+
+        public static void Retiro(long nCuenta, int monto)
+        {
+
+            using (MySqlConnection connection = ConnectionDB.GetConnection())
+            {
+                try
+                {
+
+                    string query = "INSERT INTO tbTransaccion(numero_cuenta, tipo, cantidad) VALUES (@numero_cuenta, 'Retiro', @cantidad)";
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@numero_cuenta", nCuenta);
+                    command.Parameters.AddWithValue("@cantidad", monto);
+                    command.ExecuteNonQuery();
+
+                }
+
+                catch
+                {
+                    MessageBox.Show("Error al realizar el retiro");
+                }
+                finally
+                {
+                    connection.Close();
+                }
+                {
+
+
+                }
+
+
+            }
+
+
+
+        }
+
     }
 
 }

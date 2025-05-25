@@ -68,7 +68,7 @@ namespace AppHoja4
 
         private void btnRetiros_Click(object sender, EventArgs e)
         {
-            //openForm(new formRetiro());
+            openForm(new formRetiros());
         }
     }
 }
