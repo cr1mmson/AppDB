@@ -2,6 +2,7 @@
 using AppHoja4;
 using System;
 using System.Data;
+using Org.BouncyCastle.Cms;
 
 namespace AppHoja4.Classes
 {
@@ -28,7 +29,7 @@ namespace AppHoja4.Classes
                 command.Parameters.AddWithValue("@telefono", telefono);
                 command.Parameters.AddWithValue("@correo", correoElectronico);
                 command.ExecuteNonQuery();
-
+                
             }
         
         }
@@ -90,18 +91,65 @@ namespace AppHoja4.Classes
         }
 
 
-        public static void UpdateUser(long numero_cuenta, int field)
+        public static void UpdateUser(long numero_cuenta, int field, string dbfield)
         {
 
 
             using (MySqlConnection connection = ConnectionDB.GetConnection())
             {
 
-                string query = "INSERT INTO tbDatosClientes(DPI_cliente, nombre_cuenta, fecha_nacimiento, telefono, correo_elec) VALUES (@DPI_cliente, @nombre_cuenta, @fecha_nacimiento, @telefono, @correo)";
-                MySqlCommand command = new MySqlCommand(query, connection);
-                command.Parameters.AddWithValue("@DPI_cliente", numero_cuenta);
-                command.Parameters.AddWithValue("@nombre_cuenta", field);
-                command.ExecuteNonQuery();
+                switch (field) {
+
+                    case  1:
+                        {
+
+                            string query = "UPDATE tbDatosClientes SET nombre_cliente = @nombre_cliente WHERE numero_cuenta = @numero_cuenta";
+                            MySqlCommand command = new MySqlCommand(query, connection);
+                            command.Parameters.AddWithValue("@numero_cuenta", numero_cuenta);
+                            command.Parameters.AddWithValue("@nombre_cliente", dbfield);
+                            command.ExecuteNonQuery();
+
+                        }
+                        break;
+
+                    case 2: {
+
+                            string query = "UPDATE tbDatosCLientes SET fecha_nacimiento = @fecha_nacimiento WHERE numero_cuenta = @numero_cuenta";
+                            MySqlCommand command = new MySqlCommand(query, connection);
+                            command.Parameters.AddWithValue("@numero_cuenta", numero_cuenta);
+                            command.Parameters.AddWithValue("@fecha_nacimiento", dbfield);
+                            command.ExecuteNonQuery();
+
+                        }
+                        break;
+
+                    case 3:
+                        {
+
+                            string query = "UPDATE tbDatosCLientes SET telefono = @telefono WHERE numero_cuenta = @numero_cuenta";
+                            MySqlCommand command = new MySqlCommand(query, connection);
+                            command.Parameters.AddWithValue("@numero_cuenta", numero_cuenta);
+                            command.Parameters.AddWithValue("@telefono", dbfield);
+                            command.ExecuteNonQuery();
+
+                        }
+                        break;
+
+                    case 4:
+                        {
+
+                            string query = "UPDATE tbDatosCLientes SET correo_elec = @correo_elect WHERE numero_cuenta = @numero_cuenta";
+                            MySqlCommand command = new MySqlCommand(query, connection);
+                            command.Parameters.AddWithValue("@numero_cuenta", numero_cuenta);
+                            command.Parameters.AddWithValue("@correo_elect", dbfield);
+                            command.ExecuteNonQuery();
+
+                        }
+                        break;
+
+                }
+
+
 
             }
 

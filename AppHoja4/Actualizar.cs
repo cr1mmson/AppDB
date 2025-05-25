@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AppHoja4.Classes;
 
 namespace AppHoja4
 {
@@ -24,7 +25,6 @@ namespace AppHoja4
 
         private void listUserData_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int selectedIndex = listUserData.SelectedIndex;
         }
 
         private void btnActualizarUser_Click(object sender, EventArgs e)
@@ -40,6 +40,10 @@ namespace AppHoja4
                 MessageBox.Show("El numero de cuenta es invalido.");
                 return;
             }
+            int selectedIndex = listUserData.SelectedIndex;
+
+            Services.UpdateUser(nCuenta, selectedIndex, txtField.Text);
+                
 
         }
     }

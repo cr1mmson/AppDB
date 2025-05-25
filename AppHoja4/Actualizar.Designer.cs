@@ -34,6 +34,7 @@
             this.listUserData = new System.Windows.Forms.ListBox();
             this.lblUserAct = new System.Windows.Forms.Label();
             this.btnActualizarUser = new System.Windows.Forms.Button();
+            this.txtField = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblActualizar
@@ -100,12 +101,20 @@
             this.btnActualizarUser.UseVisualStyleBackColor = false;
             this.btnActualizarUser.Click += new System.EventHandler(this.btnActualizarUser_Click);
             // 
+            // txtField
+            // 
+            this.txtField.Location = new System.Drawing.Point(313, 246);
+            this.txtField.Name = "txtField";
+            this.txtField.Size = new System.Drawing.Size(213, 20);
+            this.txtField.TabIndex = 15;
+            // 
             // Actualizar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCyan;
             this.ClientSize = new System.Drawing.Size(829, 544);
+            this.Controls.Add(this.txtField);
             this.Controls.Add(this.btnActualizarUser);
             this.Controls.Add(this.lblUserAct);
             this.Controls.Add(this.listUserData);
@@ -128,5 +137,6 @@
         private System.Windows.Forms.ListBox listUserData;
         private System.Windows.Forms.Label lblUserAct;
         private System.Windows.Forms.Button btnActualizarUser;
+        private System.Windows.Forms.TextBox txtField;
     }
 }
