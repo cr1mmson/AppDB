@@ -50,9 +50,9 @@
             this.lblBuscarCódigoDel.Font = new System.Drawing.Font("Lucida Sans Unicode", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBuscarCódigoDel.Location = new System.Drawing.Point(138, 125);
             this.lblBuscarCódigoDel.Name = "lblBuscarCódigoDel";
-            this.lblBuscarCódigoDel.Size = new System.Drawing.Size(259, 23);
+            this.lblBuscarCódigoDel.Size = new System.Drawing.Size(245, 23);
             this.lblBuscarCódigoDel.TabIndex = 5;
-            this.lblBuscarCódigoDel.Text = "Ingrese Código de Usuario";
+            this.lblBuscarCódigoDel.Text = "Ingrese le DPI de Usuario";
             // 
             // txtBuscarUserDel
             // 

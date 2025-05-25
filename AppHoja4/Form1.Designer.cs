@@ -74,6 +74,7 @@
             this.btnRetiros.TabIndex = 6;
             this.btnRetiros.Text = "Retiros";
             this.btnRetiros.UseVisualStyleBackColor = true;
+            this.btnRetiros.Click += new System.EventHandler(this.btnRetiros_Click);
             // 
             // btnDepositos
             // 
@@ -87,6 +88,7 @@
             this.btnDepositos.TabIndex = 5;
             this.btnDepositos.Text = "Depositos";
             this.btnDepositos.UseVisualStyleBackColor = true;
+            this.btnDepositos.Click += new System.EventHandler(this.btnDepositos_Click);
             // 
             // btnBorrar
             // 

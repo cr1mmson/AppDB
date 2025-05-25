@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AppHoja4.Classes;
 
 
 
@@ -28,6 +29,27 @@ namespace AppHoja4
         {
 
             MessageBox.Show("Usuario eliminado");
+            if (string.IsNullOrWhiteSpace(txtBuscarUserDel.Text))
+            {
+                MessageBox.Show("Por favor, complete todos los campos.");
+                return;
+            }
+            if (!long.TryParse(txtBuscarUserDel.Text, out long DPI))
+            {
+                MessageBox.Show("El numero de DPI es invalido.");
+                return;
+            }
+            if (DPI == 0)
+            {
+                MessageBox.Show("El numero de DPI no puede ser cero.");
+                return;
+            }
+            if (DPI < 0)
+            {
+                MessageBox.Show("El numero de DPI no puede ser negativo.");
+                return;
+            }
+            Services.DeleteUser(DPI);
         }
     }
 }

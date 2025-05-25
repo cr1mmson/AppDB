@@ -3,6 +3,9 @@ using AppHoja4;
 using System;
 using System.Data;
 using Org.BouncyCastle.Cms;
+using Mysqlx.Expr;
+using System.Linq.Expressions;
+using System.Windows.Forms;
 
 namespace AppHoja4.Classes
 {
@@ -91,7 +94,7 @@ namespace AppHoja4.Classes
         }
 
 
-        public static void UpdateUser(long numero_cuenta, int field, string dbfield)
+        public static void UpdateUser(long DPI_cliente, int field, string dbfield)
         {
 
 
@@ -103,10 +106,10 @@ namespace AppHoja4.Classes
                     case  1:
                         {
 
-                            string query = "UPDATE tbDatosClientes SET nombre_cliente = @nombre_cliente WHERE numero_cuenta = @numero_cuenta";
+                            string query = "UPDATE tbDatosClientes SET nombre_cuenta = @nombre_cuenta WHERE DPI_cliente = @Dpi_cliente";
                             MySqlCommand command = new MySqlCommand(query, connection);
-                            command.Parameters.AddWithValue("@numero_cuenta", numero_cuenta);
-                            command.Parameters.AddWithValue("@nombre_cliente", dbfield);
+                            command.Parameters.AddWithValue("@DPI_cliente", DPI_cliente);
+                            command.Parameters.AddWithValue("@nombre_cuenta", dbfield);
                             command.ExecuteNonQuery();
 
                         }
@@ -114,9 +117,9 @@ namespace AppHoja4.Classes
 
                     case 2: {
 
-                            string query = "UPDATE tbDatosCLientes SET fecha_nacimiento = @fecha_nacimiento WHERE numero_cuenta = @numero_cuenta";
+                            string query = "UPDATE tbDatosCLientes SET fecha_nacimiento = @fecha_nacimiento WHERE DPI_cliente = @DPI_cliente";
                             MySqlCommand command = new MySqlCommand(query, connection);
-                            command.Parameters.AddWithValue("@numero_cuenta", numero_cuenta);
+                            command.Parameters.AddWithValue("@DPI_cliente", DPI_cliente);
                             command.Parameters.AddWithValue("@fecha_nacimiento", dbfield);
                             command.ExecuteNonQuery();
 
@@ -125,11 +128,15 @@ namespace AppHoja4.Classes
 
                     case 3:
                         {
+                            if (!long.TryParse(dbfield, out long tel))
+                            {
+                                return;
+                            }
 
-                            string query = "UPDATE tbDatosCLientes SET telefono = @telefono WHERE numero_cuenta = @numero_cuenta";
+                            string query = "UPDATE tbDatosCLientes SET telefono = @telefono WHERE DPI_cliente = @DPI_cliente";
                             MySqlCommand command = new MySqlCommand(query, connection);
-                            command.Parameters.AddWithValue("@numero_cuenta", numero_cuenta);
-                            command.Parameters.AddWithValue("@telefono", dbfield);
+                            command.Parameters.AddWithValue("@DPI_cliente", DPI_cliente);
+                            command.Parameters.AddWithValue("@telefono", tel);
                             command.ExecuteNonQuery();
 
                         }
@@ -138,9 +145,9 @@ namespace AppHoja4.Classes
                     case 4:
                         {
 
-                            string query = "UPDATE tbDatosCLientes SET correo_elec = @correo_elect WHERE numero_cuenta = @numero_cuenta";
+                            string query = "UPDATE tbDatosCLientes SET correo_elec = @correo_elect WHERE DPI_cliente = @DPI_cliente";
                             MySqlCommand command = new MySqlCommand(query, connection);
-                            command.Parameters.AddWithValue("@numero_cuenta", numero_cuenta);
+                            command.Parameters.AddWithValue("@DPI_cliente", DPI_cliente);
                             command.Parameters.AddWithValue("@correo_elect", dbfield);
                             command.ExecuteNonQuery();
 
@@ -153,6 +160,51 @@ namespace AppHoja4.Classes
 
             }
 
+        }
+
+        public static void DeleteUser(long DPI)
+        {
+            using (MySqlConnection connection = ConnectionDB.GetConnection())
+            {
+                string query = "DELETE FROM tbDatosClientes WHERE DPI_cliente = @DPI_cliente";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@DPI_cliente", DPI);
+                command.ExecuteNonQuery();
+            }
+        }
+
+        public static void Deposito(long nCuenta, int monto, int moneda) {
+
+            using (MySqlConnection connection = ConnectionDB.GetConnection()) {
+                try {
+
+                    string query = "INSERT INTO tbTransaccion(numero_cuenta,  id_moneda, tipo, cantidad) VALUES (@numero_cuenta, @moneda, 'Deposito', @cantidad)";
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@numero_cuenta", nCuenta);
+                    command.Parameters.AddWithValue("@moneda", moneda);
+                    command.Parameters.AddWithValue("@cantidad", monto);
+                    command.ExecuteNonQuery();
+
+                }
+
+                catch
+                {
+                    MessageBox.Show("Error al realizar el deposito");
+                }
+                finally
+                {
+                    connection.Close();
+                }
+                { 
+                
+                
+                }
+
+
+            }
+        
+        
+        
         }
 
     }

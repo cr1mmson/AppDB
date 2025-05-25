@@ -61,7 +61,14 @@ namespace AppHoja4
             openForm(new Borrar());
         }
 
+        private void btnDepositos_Click(object sender, EventArgs e)
+        {
+            openForm(new formDeposito());
+        }
 
-
+        private void btnRetiros_Click(object sender, EventArgs e)
+        {
+            //openForm(new formRetiro());
+        }
     }
 }

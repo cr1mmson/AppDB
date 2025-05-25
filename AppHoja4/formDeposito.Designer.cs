@@ -33,6 +33,8 @@
             this.lblDeposito = new System.Windows.Forms.Label();
             this.lblCantidadDep = new System.Windows.Forms.Label();
             this.txtCantidadDep = new System.Windows.Forms.TextBox();
+            this.btnDepositar = new System.Windows.Forms.Button();
+            this.listBoxMoneda = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // txtBuscarUserDelDep
@@ -48,9 +50,9 @@
             this.lblIngresarCD.Font = new System.Drawing.Font("Lucida Sans Unicode", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIngresarCD.Location = new System.Drawing.Point(158, 133);
             this.lblIngresarCD.Name = "lblIngresarCD";
-            this.lblIngresarCD.Size = new System.Drawing.Size(259, 23);
+            this.lblIngresarCD.Size = new System.Drawing.Size(374, 23);
             this.lblIngresarCD.TabIndex = 8;
-            this.lblIngresarCD.Text = "Ingrese Código de Usuario";
+            this.lblIngresarCD.Text = "Ingrese Numero de Cuenta del Usuario";
             // 
             // lblDeposito
             // 
@@ -79,12 +81,37 @@
             this.txtCantidadDep.Size = new System.Drawing.Size(213, 20);
             this.txtCantidadDep.TabIndex = 12;
             // 
+            // btnDepositar
+            // 
+            this.btnDepositar.Location = new System.Drawing.Point(162, 352);
+            this.btnDepositar.Name = "btnDepositar";
+            this.btnDepositar.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnDepositar.Size = new System.Drawing.Size(75, 23);
+            this.btnDepositar.TabIndex = 13;
+            this.btnDepositar.Text = "Depositar";
+            this.btnDepositar.UseVisualStyleBackColor = true;
+            this.btnDepositar.Click += new System.EventHandler(this.btnDepositar_Click);
+            // 
+            // listBoxMoneda
+            // 
+            this.listBoxMoneda.FormattingEnabled = true;
+            this.listBoxMoneda.Items.AddRange(new object[] {
+            "USD",
+            "EUR",
+            "GTQ"});
+            this.listBoxMoneda.Location = new System.Drawing.Point(439, 293);
+            this.listBoxMoneda.Name = "listBoxMoneda";
+            this.listBoxMoneda.Size = new System.Drawing.Size(33, 43);
+            this.listBoxMoneda.TabIndex = 14;
+            // 
             // formDeposito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCyan;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.listBoxMoneda);
+            this.Controls.Add(this.btnDepositar);
             this.Controls.Add(this.txtCantidadDep);
             this.Controls.Add(this.lblCantidadDep);
             this.Controls.Add(this.txtBuscarUserDelDep);
@@ -104,5 +131,7 @@
         private System.Windows.Forms.Label lblDeposito;
         private System.Windows.Forms.Label lblCantidadDep;
         private System.Windows.Forms.TextBox txtCantidadDep;
+        private System.Windows.Forms.Button btnDepositar;
+        private System.Windows.Forms.ListBox listBoxMoneda;
     }
 }
