@@ -42,6 +42,7 @@ namespace AppHoja4
             this.pFechaN = new System.Windows.Forms.DateTimePicker();
             this.txtNombreUser = new System.Windows.Forms.TextBox();
             this.btnAgregarUser = new System.Windows.Forms.Button();
+            this.btnHistorial = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblAgregar
@@ -156,6 +157,18 @@ namespace AppHoja4
             this.btnAgregarUser.UseVisualStyleBackColor = false;
             this.btnAgregarUser.Click += new System.EventHandler(this.btnAgregarUser_Click);
             // 
+            // btnHistorial
+            // 
+            this.btnHistorial.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnHistorial.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnHistorial.Location = new System.Drawing.Point(692, 441);
+            this.btnHistorial.Name = "btnHistorial";
+            this.btnHistorial.Size = new System.Drawing.Size(75, 23);
+            this.btnHistorial.TabIndex = 13;
+            this.btnHistorial.Text = "Recientes";
+            this.btnHistorial.UseVisualStyleBackColor = false;
+            this.btnHistorial.Click += new System.EventHandler(this.btnHistorial_Click);
+            // 
             // formAgregar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -164,6 +177,7 @@ namespace AppHoja4
             this.BackColor = System.Drawing.Color.LightCyan;
             this.ClientSize = new System.Drawing.Size(829, 544);
             this.ControlBox = false;
+            this.Controls.Add(this.btnHistorial);
             this.Controls.Add(this.btnAgregarUser);
             this.Controls.Add(this.txtNombreUser);
             this.Controls.Add(this.pFechaN);
@@ -202,5 +216,6 @@ namespace AppHoja4
         private System.Windows.Forms.DateTimePicker pFechaN;
         private System.Windows.Forms.TextBox txtNombreUser;
         private System.Windows.Forms.Button btnAgregarUser;
+        private System.Windows.Forms.Button btnHistorial;
     }
 }
